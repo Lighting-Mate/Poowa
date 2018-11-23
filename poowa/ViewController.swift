@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var inputText: UITextField!
+    @IBOutlet weak var logText: UITextView!
     
     var viewState: ViewState = .disconnected {
         didSet {
@@ -37,6 +38,8 @@ class ViewController: UIViewController {
     
     @IBAction func sendButton(_ sender: Any) {
         manager.poowa?.changeText(text: inputText.text!)
+        // TODO: 下記のコードをESP32の状態とリンクさせる。(多分実装しない)
+        logText.text += "send Data to 'ESP32':" + inputText.text! + "\n"
     }
 
     @IBAction func connectButton(_ sender: Any) {
