@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         manager = PoowaCentralManager()
-        manager.delegate = self
+        manager.delegate = self // poowa::protocol -> poowa -> manager -> ViewContoller
     }
     
     

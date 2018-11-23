@@ -15,14 +15,14 @@ class Poowa: NSObject {
     static let characteristicUUID = CBUUID(string: "E4025514-0A8D-4C0B-B173-5D5535DCF29E")
 
     let peripheral : CBPeripheral
-    weak var delegate: PoowaDelegate?
+    weak var delegate: PoowaDelegate? // poowa::protocol -> poowa
     private var poowaTextCharacteristic : CBCharacteristic? // textを管理する特性
     
     
     init(peripheral: CBPeripheral){
         self.peripheral = peripheral
         super.init()
-        peripheral.delegate = self
+        peripheral.delegate = self // CBPeripheral -> poowa
     }
     
     

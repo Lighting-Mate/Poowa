@@ -8,16 +8,12 @@ class PoowaCentralManager : NSObject {
     
     let manager : CBCentralManager
     var poowa: Poowa?
-    weak var delegate : PoowaDelegate? {
-        didSet {
-            poowa?.delegate = delegate
-        }
-    }
+    weak var delegate : PoowaDelegate? // poowa::protocol -> poowa -> manager
     
     override init(){
         manager = CBCentralManager(delegate: nil, queue: nil)
         super.init()
-        manager.delegate = self
+        manager.delegate = self // CBCentralManager -> manager
     }
     
     // poowaと接続していたらコネクションを断つ
@@ -57,7 +53,7 @@ extension PoowaCentralManager : CBCentralManagerDelegate {
         print("ペリフェラルを見つけました")
         if poowa == nil { // 他のpoowaと接続していなければ接続を開始する
             poowa = Poowa(peripheral: peripheral)
-            poowa?.delegate = delegate
+            poowa?.delegate = self.delegate // poowa::protocol -> poowa -> manager
             manager.connect(peripheral, options: nil) // options で serviceUUIDを指定できる。
             manager.stopScan() // 接続したのでペリフェラルを探す必要がないので終了。
         }
