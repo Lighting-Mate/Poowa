@@ -2,12 +2,57 @@ import UIKit
 
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
 
     enum ViewState: Int {
         case disconnected
         case connected
         case ready
+    }
+    
+    // cellの色の配列
+    let colors: [UIColor] = [UIColor.blue, UIColor.cyan, UIColor.green, UIColor.yellow, UIColor.orange, UIColor.red]
+    let colorNames: [String] = ["blue", "cyan", "green", "yellow", "orange", "red"]
+    
+    
+    // collectionView Section Value
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    // cellの数を返す関数
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return colors.count
+    }
+    
+    // cellに情報を入れていく関数
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell : CollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
+        
+        cell.colorReact.backgroundColor = colors[indexPath.item]
+        cell.colorReact.text = ""
+        cell.colorName = colorNames[indexPath.item]
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell : CollectionViewCell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
+        let alert: UIAlertController = UIAlertController(title: "選択した色は〜？", message: "選んだカラーは\(cell.colorName)です", preferredStyle:  UIAlertController.Style.alert)
+        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
+            // ボタンが押された時の処理を書く（クロージャ実装）
+            (action: UIAlertAction!) -> Void in
+            print("OK")
+        })
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
+            // ボタンが押された時の処理を書く（クロージャ実装）
+            (action: UIAlertAction!) -> Void in
+            print("Cancel")
+        })
+        alert.addAction(cancelAction)
+        alert.addAction(defaultAction)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     var manager : PoowaCentralManager!

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE467EAD21B7C4D200E4F813 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE467EAC21B7C4D200E4F813 /* CollectionView.swift */; };
 		FE573F1221A7D699004BD902 /* CentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE573F1121A7D699004BD902 /* CentralManager.swift */; };
 		FE573F1421A7D96E004BD902 /* Poowa.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE573F1321A7D96E004BD902 /* Poowa.swift */; };
 		FEB9F90A21B39AA80062D015 /* mochi.png in Resources */ = {isa = PBXBuildFile; fileRef = FEB9F90821B39AA70062D015 /* mochi.png */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FE467EAC21B7C4D200E4F813 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		FE573F1121A7D699004BD902 /* CentralManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralManager.swift; sourceTree = "<group>"; };
 		FE573F1321A7D96E004BD902 /* Poowa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poowa.swift; sourceTree = "<group>"; };
 		FEB9F90821B39AA70062D015 /* mochi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mochi.png; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				FED99E7A219BCCFB006E30C4 /* AppDelegate.swift */,
 				FED99E7C219BCCFB006E30C4 /* ViewController.swift */,
 				FED99E7E219BCCFB006E30C4 /* Main.storyboard */,
+				FE467EAC21B7C4D200E4F813 /* CollectionView.swift */,
 				FED99E81219BCCFE006E30C4 /* Assets.xcassets */,
 				FED99E83219BCCFE006E30C4 /* LaunchScreen.storyboard */,
 				FEB9F90821B39AA70062D015 /* mochi.png */,
@@ -283,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE573F1421A7D96E004BD902 /* Poowa.swift in Sources */,
+				FE467EAD21B7C4D200E4F813 /* CollectionView.swift in Sources */,
 				FED99E7D219BCCFB006E30C4 /* ViewController.swift in Sources */,
 				FED99E7B219BCCFB006E30C4 /* AppDelegate.swift in Sources */,
 				FE573F1221A7D699004BD902 /* CentralManager.swift in Sources */,
